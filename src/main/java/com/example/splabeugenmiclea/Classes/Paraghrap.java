@@ -9,7 +9,7 @@ public class Paraghrap {
 
     @Override
     public String toString() {
-        return "Paraghrap{" +
+        return "Paraghrap{" +  "\n" +
                 "text='" + text + '\'' +
                 '}';
     }

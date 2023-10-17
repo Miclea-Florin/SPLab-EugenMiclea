@@ -12,10 +12,11 @@ public class SubChapter {
     @Override
     public String toString() {
         return "SubChapter{" +
-                "text='" + text + '\'' +
-                ", Images=" + Images +
-                ", Tables=" + Tables +
-                ", Paragraphs=" + Paragraphs +
+                "text='" + text + '\'' + "\n" +
+                ", Paragraphs=" + Paragraphs +  "\n" +
+                ", Images=" + Images +  "\n" +
+                ", Tables=" + Tables +  "\n" +
+
                 '}';
     }
 
