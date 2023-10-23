@@ -1,38 +1,55 @@
 package com.example.splabeugenmiclea.Classes;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class Book {
-    String title;
-    List<Author> autori = new ArrayList<Author>();
-    List<Chapter> chapters = new ArrayList<Chapter>();
+public class Book{
+    private String title;
 
-    public Book(String title) {
+    private List<Element> sections;
+    private List<Author> authors;
+
+    public Book(String title, List<Element> sections){
         this.title = title;
+
+        this.sections = sections;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", autori=" + autori +
-                ", chapters=" + chapters +
-                '}';
+    public void addAuthor(Author a){
+        authors.add(a);
     }
 
-
-    public void addAuthor(Author author) {
-        autori.add(author);
+    public Book(String title){
+        this.title =  title;
+        authors = new ArrayList<Author>();
+        sections = null;
     }
 
-    public int createChapter(String s) {
-        chapters.add(new Chapter(s));
-        return 0;
+    public int createSection(String ChapterTitle){
+        if (sections == null){
+            sections = new ArrayList<Element>();
+        }
+        Section newSection = new Section("ChapterTitle");
+        sections.add(newSection);
+        return sections.size();
     }
 
-    public Chapter getChapter(int indexChapterOne) {
-        return this.chapters.get(indexChapterOne);
+    public void print(){
+        System.out.println("Book: " + title);
+        System.out.println("\nAuthors: ");
+        for(Author a: authors)
+            a.print();
+        System.out.println();
+        for(Element e:sections)
+            e.print();
+    }
+
+    public Element getSection(int index) {
+        return sections.get(index - 1);
+    }
+
+    public void addContent(Element paragraph) {
+        if(sections == null) sections = new ArrayList<Element>();
+        sections.add(paragraph);
     }
 }

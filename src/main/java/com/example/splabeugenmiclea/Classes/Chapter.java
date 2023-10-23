@@ -1,33 +1,33 @@
 package com.example.splabeugenmiclea.Classes;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
 public class Chapter {
-    String name;
-    List<SubChapter> subChapters = new ArrayList<SubChapter>();
+    private String name;
 
+    private List<Subchapter> subchapterList;
 
-    @Override
-    public String toString() {
-        return "Chapter{" +
-                "name='" + name + '\'' +
-                ", subChapters=" + subChapters +
-                '}';
+    public Chapter(String name, List<Subchapter> subchapters){
+        this.name=name;
+        subchapterList = subchapters;
     }
 
-    public Chapter(String name) {
+    public Chapter(String name){
         this.name = name;
+        subchapterList = null;
+    }
+    public void print(){
+        System.out.println("Chapter name: " + name);
     }
 
-    public SubChapter getSubChapter(int indexSubChapterOneOne) {
-       return this.subChapters.get(indexSubChapterOneOne);
+    public int createSubChapter(String title) {
+        if(subchapterList == null)
+            subchapterList = new ArrayList<Subchapter>();
+        subchapterList.add(new Subchapter(title));
+        return subchapterList.size();
     }
 
-    public int createSubChapter(String s) {
-        subChapters.add(new SubChapter(s));
-        return 0;
+    public Subchapter getSubChapter(int index) {
+        return subchapterList.get(index - 1);
     }
 }

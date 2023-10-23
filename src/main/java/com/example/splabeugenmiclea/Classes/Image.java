@@ -1,18 +1,31 @@
 package com.example.splabeugenmiclea.Classes;
-
+import java.util.List;
 import lombok.Data;
 @Data
-public class Image {
-    String ImageName;
+public class Image implements Element{
+    private String imagename;
 
-    @Override
-    public String toString() {
-        return "Image{" +
-                "ImageName='" + ImageName + '\'' +
-                '}';
+    public Image(String imagename){
+        this.imagename = imagename;
     }
 
-    public Image(String imageName) {
-        ImageName = imageName;
+    @Override
+    public void print(){
+        System.out.println("Image with name: " + imagename);
+    }
+
+    @Override
+    public void add(Element e) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void removeElement(Element e) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Element get(int i) {
+        throw new UnsupportedOperationException();
     }
 }

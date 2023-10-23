@@ -1,16 +1,14 @@
 package com.example.splabeugenmiclea.Classes;
 
-import java.util.List;
-
-public class Table implements Element{
+public class Paragraph implements Element{
     private String name;
-    public Table(String name){
+    public Paragraph(String name){
         this.name = name;
     }
 
     @Override
     public void print(){
-        System.out.println("Table name: " + name);
+        System.out.println("Paragraph: " + name);
     }
 
     @Override
