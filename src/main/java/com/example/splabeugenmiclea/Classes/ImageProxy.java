@@ -1,25 +1,27 @@
 package com.example.splabeugenmiclea.Classes;
-import java.util.List;
+
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import lombok.Data;
-@Data
-public class Image implements Element{
+public class ImageProxy implements Element{
+
     private String imagename;
+    private Image realImage= null;
 
-    public Image(String imagename){
+    public ImageProxy(String imagename) {
         this.imagename = imagename;
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    }
 
+    private void loadRealImage() {
+        if (Objects.isNull(realImage)) {
+            realImage = new Image(this.imagename);
+        }
     }
 
     @Override
-    public void print(){
-        System.out.println("Image with name: " + imagename);
+    public void print() {
+        loadRealImage();
+        realImage.print();
     }
 
     @Override
