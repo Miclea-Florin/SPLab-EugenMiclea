@@ -8,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpLabEugenMicleaApplication {
 
     public static void main(String[] args) {
-     /*   //SpringApplication.run(SabloaneLabApplication.class, args);
+       /*
+        //SpringApplication.run(SabloaneLabApplication.class, args);
         Book noapteBuna = new Book("Noapte buna, copii!");
         Author rpGheo = new Author("Radu Pavel Gheo");
         noapteBuna.addAuthor(rpGheo);
@@ -26,7 +27,9 @@ public class SpLabEugenMicleaApplication {
         cap111.add(cap1111);
         cap1111.add(new Image("Image subchapter 1.1.1.1"));
         noapteBuna.print();
+*/
 
+   /*
         // Lab 4
 
         long startTime = System.currentTimeMillis();
@@ -60,7 +63,7 @@ public class SpLabEugenMicleaApplication {
         System.out.println("Printing again the section 1 took " + (endTime -
                 startTime) + " milliseconds");
 */
-
+/*
         long startTime = System.currentTimeMillis();
         ImageProxy img1 = new ImageProxy("Pamela Anderson");
         ImageProxy img2 = new ImageProxy("Kim Kardashian");
@@ -86,7 +89,32 @@ public class SpLabEugenMicleaApplication {
         endTime = System.currentTimeMillis();
         System.out.println("Printing again the section 1 took " + (endTime -
                 startTime) + " milliseconds");
+*/
+
+        Section cap1 = new Section("Capitolul 1");
+        Paragraph p1 = new Paragraph("Paragraph 1");
+        cap1.add(p1);
+        Paragraph p2 = new Paragraph("Paragraph 2");
+        cap1.add(p2);
+        Paragraph p3 = new Paragraph("Paragraph 3");
+        cap1.add(p3);
+        Paragraph p4 = new Paragraph("Paragraph 4");
+        cap1.add(p4);
+        System.out.println("Printing without Alignment");
+        System.out.println();
+        cap1.print();
+        p1.setAlignStrategy(new AlignCenter());
+        p2.setAlignStrategy(new AlignRight());
+        p3.setAlignStrategy(new AlignLeft());
+        System.out.println();
+        System.out.println("Printing with Alignment");
+        System.out.println();
+        cap1.print();
+    }
+
 
 
     }
-}
+
+
+
