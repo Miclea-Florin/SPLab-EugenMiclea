@@ -1,10 +1,8 @@
 package com.example.splabeugenmiclea.Classes;
 
-public class AlignLeft implements AlignStrategy {
-
+public class AlignLeft implements AlignStrategy{
     @Override
-    public void setAlignStrategy() {
-
+    public void render(String text) {
+        System.out.println(text);
     }
-
 }
