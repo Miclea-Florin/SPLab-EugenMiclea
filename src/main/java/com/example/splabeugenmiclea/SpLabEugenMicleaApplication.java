@@ -14,8 +14,6 @@ import org.springframework.context.ApplicationContext;
 public class SpLabEugenMicleaApplication {
 
     public static void main(String[] args) {
-
-        //
 // Run this main function and inspect the output console
 // to learn about
 // the lifecycle of objects within
@@ -53,5 +51,5 @@ public class SpLabEugenMicleaApplication {
         c = (ClientComponent)context.getBean("clientComponent");
         c.operation();
     }
-}
+  
 
