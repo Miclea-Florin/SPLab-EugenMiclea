@@ -1,10 +1,12 @@
 package com.example.splabeugenmiclea.Classes;
 
-public class AlignRight implements AlignStrategy{
 
-
+public class AlignRight implements AlignStrategy {
     @Override
-    public void setAlignStrategy() {
-
+    public void render(String text) {
+        int width = 80;
+        int padSize = (width - text.length());
+        String pad = String.format("%"+padSize+"s", "");
+        System.out.println(pad + text);
     }
 }
