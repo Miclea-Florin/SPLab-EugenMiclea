@@ -2,6 +2,7 @@ package com.example.splabeugenmiclea.Classes.models;
 
 import com.example.splabeugenmiclea.Classes.models.Image;
 import com.example.splabeugenmiclea.Classes.service.Element;
+import com.example.splabeugenmiclea.Classes.service.Visitor;
 
 import java.util.Objects;
 
@@ -14,10 +15,12 @@ public class ImageProxy implements Element {
         this.imagename = imagename;
     }
 
-    private void loadRealImage() {
+    public Image loadRealImage() {
         if (Objects.isNull(realImage)) {
             realImage = new Image(this.imagename);
+        return realImage;
         }
+        return realImage;
     }
 
     @Override
@@ -39,5 +42,10 @@ public class ImageProxy implements Element {
     @Override
     public Element get(int i) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
     }
 }

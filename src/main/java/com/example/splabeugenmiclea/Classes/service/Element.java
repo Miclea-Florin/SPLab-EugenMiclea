@@ -1,6 +1,8 @@
 package com.example.splabeugenmiclea.Classes.service;
 
-public interface Element {
+import com.example.splabeugenmiclea.Classes.service.implementation.Visitee;
+
+public interface Element extends Visitee {
     void print();
     void add(Element e);
     void removeElement(Element e);

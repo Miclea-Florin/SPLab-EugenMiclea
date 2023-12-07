@@ -1,6 +1,7 @@
 package com.example.splabeugenmiclea.Classes.models;
 
 import com.example.splabeugenmiclea.Classes.service.Element;
+import com.example.splabeugenmiclea.Classes.service.Visitor;
 
 public class Table implements Element {
     private String name;
@@ -26,5 +27,10 @@ public class Table implements Element {
     @Override
     public Element get(int i) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTable(this);
     }
 }

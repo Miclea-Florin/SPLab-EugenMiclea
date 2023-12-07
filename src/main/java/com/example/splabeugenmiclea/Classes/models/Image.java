@@ -2,6 +2,7 @@ package com.example.splabeugenmiclea.Classes.models;
 import java.util.concurrent.TimeUnit;
 
 import com.example.splabeugenmiclea.Classes.service.Element;
+import com.example.splabeugenmiclea.Classes.service.Visitor;
 import lombok.Data;
 @Data
 public class Image implements Element {
@@ -35,5 +36,10 @@ public class Image implements Element {
     @Override
     public Element get(int i) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImage(this);
     }
 }

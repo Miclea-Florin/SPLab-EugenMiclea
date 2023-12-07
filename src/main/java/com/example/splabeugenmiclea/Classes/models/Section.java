@@ -1,6 +1,7 @@
 package com.example.splabeugenmiclea.Classes.models;
 
 import com.example.splabeugenmiclea.Classes.service.Element;
+import com.example.splabeugenmiclea.Classes.service.Visitor;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -35,5 +36,13 @@ public class Section implements Element {
     @Override
     public Element get(int i){
         return children.get(i);
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitSection(this);
+        for(Element c: children){
+            c.accept(visitor);
+        }
     }
 }

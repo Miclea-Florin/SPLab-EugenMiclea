@@ -1,10 +1,14 @@
 package com.example.splabeugenmiclea.Classes.models;
 
+import com.example.splabeugenmiclea.Classes.service.Visitor;
 import com.example.splabeugenmiclea.Classes.service.implementation.AlignLeft;
 import com.example.splabeugenmiclea.Classes.service.AlignStrategy;
 import com.example.splabeugenmiclea.Classes.service.Element;
+import com.example.splabeugenmiclea.Classes.service.implementation.Visitee;
+import lombok.Data;
 
-public class Paragraph implements Element {
+@Data
+public class Paragraph implements Element, Visitee {
     private String name;
     private AlignStrategy align;
     public Paragraph(String name){
@@ -39,5 +43,10 @@ public class Paragraph implements Element {
 
     public void setAlignStrategy(AlignStrategy align) {
         this.align = align;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitParagraph(this);
     }
 }
