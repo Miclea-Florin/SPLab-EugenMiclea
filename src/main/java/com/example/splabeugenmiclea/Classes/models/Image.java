@@ -1,10 +1,10 @@
-package com.example.splabeugenmiclea.Classes;
-import java.util.List;
+package com.example.splabeugenmiclea.Classes.models;
 import java.util.concurrent.TimeUnit;
 
+import com.example.splabeugenmiclea.Classes.service.Element;
 import lombok.Data;
 @Data
-public class Image implements Element{
+public class Image implements Element {
     private String imagename;
 
     public Image(String imagename){

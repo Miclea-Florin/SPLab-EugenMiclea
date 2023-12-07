@@ -1,4 +1,4 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
 
 import java.util.ArrayList;
 import java.util.List;

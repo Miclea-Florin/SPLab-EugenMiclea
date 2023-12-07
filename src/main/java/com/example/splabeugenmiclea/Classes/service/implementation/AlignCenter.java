@@ -1,6 +1,8 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.service.implementation;
 
-public class AlignCenter implements AlignStrategy{
+import com.example.splabeugenmiclea.Classes.service.AlignStrategy;
+
+public class AlignCenter implements AlignStrategy {
 
     @Override
     public void render(String text) {

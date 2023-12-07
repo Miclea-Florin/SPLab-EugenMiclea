@@ -1,5 +1,7 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.service.implementation;
 
+
+import com.example.splabeugenmiclea.Classes.service.AlignStrategy;
 
 public class AlignRight implements AlignStrategy {
     @Override

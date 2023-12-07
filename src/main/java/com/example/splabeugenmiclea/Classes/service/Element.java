@@ -1,4 +1,4 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.service;
 
 public interface Element {
     void print();

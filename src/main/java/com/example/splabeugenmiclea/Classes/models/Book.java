@@ -1,8 +1,11 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
+
+import com.example.splabeugenmiclea.Classes.service.Element;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 public class Book{
     private String title;
 
@@ -43,6 +46,9 @@ public class Book{
         for(Element e:sections)
             e.print();
     }
+
+
+
 
     public Element getSection(int index) {
         return sections.get(index - 1);

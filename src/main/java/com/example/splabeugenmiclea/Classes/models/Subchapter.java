@@ -1,7 +1,9 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
+
+import com.example.splabeugenmiclea.Classes.service.Element;
 
 import java.util.ArrayList;
-import java.util.Collection;import java.util.List;
+import java.util.List;
 
 public class Subchapter {
     private String name;

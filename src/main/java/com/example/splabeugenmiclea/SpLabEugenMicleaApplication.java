@@ -1,7 +1,7 @@
 package com.example.splabeugenmiclea;
 
 import com.example.splabeugenmiclea.Classes.*;
-//import com.example.splabeugenmiclea.Classes.Section;
+//import com.example.splabeugenmiclea.Classes.models.Section;
 import com.example.splabeugenmiclea.Classes.difexample.ClientComponent;
 import com.example.splabeugenmiclea.Classes.difexample.SingletonComponent;
 import com.example.splabeugenmiclea.Classes.difexample.TransientComponent;
@@ -10,8 +10,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+
+
 @SpringBootApplication
 public class SpLabEugenMicleaApplication {
+
+
 
     public static void main(String[] args) {
 // Run this main function and inspect the output console
@@ -48,8 +52,9 @@ public class SpLabEugenMicleaApplication {
         ClientComponent c = context.getBean(ClientComponent.class);
         c.operation();
 // One can also request an instance from DI context by name
-        c = (ClientComponent)context.getBean("clientComponent");
+        c = (ClientComponent) context.getBean("clientComponent");
         c.operation();
     }
+}
   
 

@@ -1,6 +1,8 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
 
-public class TableOfContent implements Element{
+import com.example.splabeugenmiclea.Classes.service.Element;
+
+public class TableOfContent implements Element {
     public void print(){
         System.out.println("Sample");
     }

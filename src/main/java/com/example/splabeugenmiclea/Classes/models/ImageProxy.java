@@ -1,9 +1,11 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
+
+import com.example.splabeugenmiclea.Classes.models.Image;
+import com.example.splabeugenmiclea.Classes.service.Element;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
-public class ImageProxy implements Element{
+public class ImageProxy implements Element {
 
     private String imagename;
     private Image realImage= null;

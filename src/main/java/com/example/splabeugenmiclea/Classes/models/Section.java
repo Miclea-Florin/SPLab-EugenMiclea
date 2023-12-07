@@ -1,9 +1,12 @@
-package com.example.splabeugenmiclea.Classes;
+package com.example.splabeugenmiclea.Classes.models;
+
+import com.example.splabeugenmiclea.Classes.service.Element;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Section implements Element{
+@Data
+public class Section implements Element {
     private String title;
     private List<Element> children = new ArrayList<>();
 
@@ -17,6 +20,7 @@ public class Section implements Element{
         for(Element e:children)
             e.print();
     }
+
 
     @Override
     public void add(Element e){
