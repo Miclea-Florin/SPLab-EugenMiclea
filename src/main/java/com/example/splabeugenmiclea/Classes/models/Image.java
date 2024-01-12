@@ -5,7 +5,7 @@ import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.Visitor;
 import lombok.Data;
 @Data
-public class Image implements Element {
+public class Image extends baseElement implements Element {
     private String imagename;
 
     public Image(String imagename){

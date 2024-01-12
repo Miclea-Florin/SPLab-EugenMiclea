@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 @Data
-public class TableOfContent implements Element {
+public class TableOfContent extends baseElement implements Element {
 
     private List<String> entries = new ArrayList<String>();
 

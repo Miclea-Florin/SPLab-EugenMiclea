@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommandDeleteBook implements Command<Void> {
     private final BookService bookService;
-    Long id;
+    Integer id;
 
     public CommandDeleteBook(BookService bookService) {
         this.bookService = bookService;
@@ -18,7 +18,7 @@ public class CommandDeleteBook implements Command<Void> {
         return null;
     }
 
-    public void setId(Long id){
+    public void setId(Integer id){
         this.id=id;
 
     }

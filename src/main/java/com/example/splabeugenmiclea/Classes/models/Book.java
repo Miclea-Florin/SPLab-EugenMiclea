@@ -3,21 +3,31 @@ package com.example.splabeugenmiclea.Classes.models;
 import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.Visitor;
 import com.example.splabeugenmiclea.Classes.service.implementation.Visitee;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 @Data
+@Entity
 public class Book implements Visitee {
     private String title;
-
-    private List<Element> sections;
+    @OneToMany(targetEntity = baseElement.class)
+    private List<baseElement> sections;
+    @ManyToMany
     private List<Author> authors;
+    @Id
+    @GeneratedValue
+    private Integer id;
 
-    public Book(String title, List<Element> sections) {
+    public Book(String title, List<baseElement> sections) {
         this.title = title;
 
         this.sections = sections;
+    }
+
+    public Book() {
+
     }
 
     public void addAuthor(Author a) {
@@ -32,7 +42,7 @@ public class Book implements Visitee {
 
     public int createSection(String ChapterTitle) {
         if (sections == null) {
-            sections = new ArrayList<Element>();
+            sections = new ArrayList<baseElement>();
         }
         Section newSection = new Section("ChapterTitle");
         sections.add(newSection);
@@ -55,8 +65,8 @@ public class Book implements Visitee {
     }
 
     public void addContent(Element paragraph) {
-        if (sections == null) sections = new ArrayList<Element>();
-        sections.add(paragraph);
+        if (sections == null) sections = new ArrayList<baseElement>();
+        sections.add((baseElement) paragraph);
     }
 
     @Override
@@ -72,5 +82,13 @@ public class Book implements Visitee {
                 el.accept(visitor);
             }
 
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

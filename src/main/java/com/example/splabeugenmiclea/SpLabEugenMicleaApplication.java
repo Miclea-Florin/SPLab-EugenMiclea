@@ -12,7 +12,9 @@ import com.example.splabeugenmiclea.Classes.service.implementation.RenderContent
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
@@ -47,9 +49,20 @@ public class SpLabEugenMicleaApplication {
 
         //    b.accept(new RenderContentVisitor());
         }
-
-
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
+    }
     public static void main(String[] args) {
+        SpringApplication.run(SpLabEugenMicleaApplication.class, args);
+    }
+
+    public static void main_(String[] args) {
 // Run this main function and inspect the output console
 // to learn about
 // the lifecycle of objects within

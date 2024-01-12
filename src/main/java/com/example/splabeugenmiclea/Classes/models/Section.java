@@ -2,17 +2,29 @@ package com.example.splabeugenmiclea.Classes.models;
 
 import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.Visitor;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 @Data
-public class Section implements Element {
+@Entity
+public class Section extends baseElement implements Element {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer id;
+    @Column
     private String title;
+    @OneToMany(targetEntity = baseElement.class)
     private List<Element> children = new ArrayList<>();
 
     public Section(String title) {
         this.title = title;
+    }
+
+    public Section() {
+
     }
 
     @Override

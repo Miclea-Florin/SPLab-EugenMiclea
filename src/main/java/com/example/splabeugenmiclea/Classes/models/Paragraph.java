@@ -5,15 +5,28 @@ import com.example.splabeugenmiclea.Classes.service.implementation.AlignLeft;
 import com.example.splabeugenmiclea.Classes.service.AlignStrategy;
 import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.implementation.Visitee;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
-public class Paragraph implements Element, Visitee {
+@Entity
+public class Paragraph extends baseElement implements Element, Visitee {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer id;
+
+    @Getter
     private String name;
+    @Transient
     private AlignStrategy align;
     public Paragraph(String name){
         this.name = name;
         align = new AlignLeft();
+    }
+
+    public Paragraph() {
+
     }
 
     @Override

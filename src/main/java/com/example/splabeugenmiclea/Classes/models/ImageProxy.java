@@ -3,12 +3,19 @@ package com.example.splabeugenmiclea.Classes.models;
 import com.example.splabeugenmiclea.Classes.models.Image;
 import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.Visitor;
+import com.example.splabeugenmiclea.Classes.service.implementation.Visitee;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
-public class ImageProxy implements Element {
+@Entity
+@NoArgsConstructor
+public class ImageProxy extends baseElement implements Element, Visitee {
 
     private String imagename;
+    @Transient
     private Image realImage= null;
 
     public ImageProxy(String imagename) {
