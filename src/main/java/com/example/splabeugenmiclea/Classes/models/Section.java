@@ -16,11 +16,12 @@ public class Section extends baseElement implements Element {
     public Integer id;
     @Column
     private String title;
-    @OneToMany(targetEntity = baseElement.class)
+    @OneToMany(targetEntity = baseElement.class,fetch = FetchType.EAGER)
     private List<Element> children = new ArrayList<>();
 
     public Section(String title) {
         this.title = title;
+        children = null;
     }
 
     public Section() {

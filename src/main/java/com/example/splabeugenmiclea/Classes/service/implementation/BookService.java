@@ -1,5 +1,6 @@
 package com.example.splabeugenmiclea.Classes.service.implementation;
 
+import com.example.splabeugenmiclea.Classes.Repository.authorRepository;
 import com.example.splabeugenmiclea.Classes.Repository.bookRepository;
 import com.example.splabeugenmiclea.Classes.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,13 @@ public class BookService {
 
     private final Map<Long, Book> books = new HashMap<>();
     private final bookRepository bookRepository;
+    private final authorRepository authorRepository;
     private long nextId = 1;
 @Autowired
-    public BookService(bookRepository bookRepository) {
+    public BookService(bookRepository bookRepository, com.example.splabeugenmiclea.Classes.Repository.authorRepository authorRepository) {
         this.bookRepository = bookRepository;
-    }
+    this.authorRepository = authorRepository;
+}
 
     @Async
     public CompletableFuture<Book> createBook(Book bookData) {

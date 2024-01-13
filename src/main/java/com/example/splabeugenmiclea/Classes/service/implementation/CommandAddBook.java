@@ -1,5 +1,6 @@
 package com.example.splabeugenmiclea.Classes.service.implementation;
 
+import com.example.splabeugenmiclea.Classes.models.Author;
 import com.example.splabeugenmiclea.Classes.models.Book;
 import com.example.splabeugenmiclea.Classes.service.Command;
 import org.springframework.scheduling.annotation.Async;
@@ -11,6 +12,8 @@ import java.util.concurrent.CompletableFuture;
 public class CommandAddBook implements Command<CompletableFuture<Book>> {
     private final BookService bookService;
     private Book Book;
+
+    private Author autor;
 
     public CommandAddBook(BookService bookService) {
         this.bookService = bookService;

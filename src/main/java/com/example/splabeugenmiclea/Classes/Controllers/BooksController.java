@@ -1,7 +1,11 @@
 package com.example.splabeugenmiclea.Classes.Controllers;
 
+import com.example.splabeugenmiclea.Classes.Repository.authorRepository;
+import com.example.splabeugenmiclea.Classes.models.Author;
 import com.example.splabeugenmiclea.Classes.models.Book;
+import com.example.splabeugenmiclea.Classes.models.Section;
 import com.example.splabeugenmiclea.Classes.models.allBooksSubject;
+import com.example.splabeugenmiclea.Classes.service.Element;
 import com.example.splabeugenmiclea.Classes.service.implementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,8 @@ public class BooksController {
 
 
     private List<Book> books = new ArrayList<>();
+    private final com.example.splabeugenmiclea.Classes.Repository.sectionRepository sectionRepository;
+    private final authorRepository authorRepository;
     private final CommandAddBook addBook;
     private final CommandDeleteBook deleteBook;
     private final CommandUpdateBook updateBook;
@@ -25,7 +31,9 @@ public class BooksController {
 
     private final allBooksSubject allBooksSubject;
     @Autowired
-    public BooksController(CommandAddBook addBook, CommandDeleteBook deleteBook, CommandUpdateBook updateBook, CommandGetBooks getAllBooks, CommandGetBookByID getBookByID, com.example.splabeugenmiclea.Classes.models.allBooksSubject allBooksSubject) {
+    public BooksController(com.example.splabeugenmiclea.Classes.Repository.sectionRepository sectionRepository, com.example.splabeugenmiclea.Classes.Repository.authorRepository authorRepository, CommandAddBook addBook, CommandDeleteBook deleteBook, CommandUpdateBook updateBook, CommandGetBooks getAllBooks, CommandGetBookByID getBookByID, com.example.splabeugenmiclea.Classes.models.allBooksSubject allBooksSubject) {
+        this.sectionRepository = sectionRepository;
+        this.authorRepository = authorRepository;
         this.addBook = addBook;
         this.deleteBook = deleteBook;
         this.updateBook = updateBook;
@@ -42,8 +50,15 @@ public class BooksController {
     @PostMapping("/books")
     public CompletableFuture<Book> createBook(@RequestBody Book book) throws IOException {
        // book.setTitle("gica");
+        List<Author> authors = book.getAuthors(); // Assuming you have a method to get the Author from the Book entity
+        for (Author e : authors)
+            authorRepository.save(e);
+        for(Element e: book.getSections())
+            sectionRepository.save((Section) e);
+
         addBook.setBook(book);
         allBooksSubject.add(book);
+
         return addBook.execute();
     }
 

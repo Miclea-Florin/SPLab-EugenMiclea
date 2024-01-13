@@ -12,8 +12,10 @@ import java.util.List;
 @Entity
 public class Book implements Visitee {
     private String title;
+
     @OneToMany(targetEntity = baseElement.class)
     private List<baseElement> sections;
+
     @ManyToMany
     private List<Author> authors;
     @Id
@@ -24,6 +26,13 @@ public class Book implements Visitee {
         this.title = title;
 
         this.sections = sections;
+    }
+
+    public Book(String title, List<baseElement> sections, List<Author> a) {
+        this.title = title;
+
+        this.sections = sections;
+        this.authors = a;
     }
 
     public Book() {
