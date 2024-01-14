@@ -16,9 +16,9 @@ public class allBooksSubject {
     }
 
     public void add(Book book) throws IOException {
-        // Your existing logic to add a book
-        // Notify all observers about the new book
+
         notifyObservers(book);
+
     }
 
     private void notifyObservers(Book book) throws IOException {

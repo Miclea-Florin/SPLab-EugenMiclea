@@ -27,10 +27,15 @@ public class CommandAddBook implements Command<CompletableFuture<Book>> {
 @Override
 @Async
     public CompletableFuture<Book> execute(){
+
         return bookService.createBook(Book);
     }
     public void setBook(Book book) {
         Book = book;
 
+    }
+
+    public Book getBook() {
+        return Book;
     }
 }
